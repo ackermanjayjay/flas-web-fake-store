@@ -1,13 +1,27 @@
 {% extends "base.html" %}
 {% block title %} ini halaman index {% endblock %}
 
-{% block content %} 
-<div class="container card" style="width: 18rem;">
+{% block content %}
+<form action="/data/{{ datas.id }}" method=post>
+<div class="mb-5 container">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
     {% for data in datas %}
-    <img src="{data.image}" class="card-img-top" alt="Salah ambil API">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="col flex-wrap">
+      <div class="card h-100">
+        <div class="d-flex flex-row-reverse">
+        <img src="{{data.image}}" class="card-img-top just container-fluid " alt="salah ambil API" style="width: 10rem;">
+        <div class="card-body">
+          <h5 class="card-title ">{{data.title}}</h5>
+          <a href="{{ data.id }}" class="btn btn-primary">For detail</a>
+          <!-- <p class="card-text">{{data.description}}</p> -->
+        </div>
+        </div>
+      </div>
     </div>
     {%endfor%}
   </div>
+</div>
+
+
+
 {% endblock %}
